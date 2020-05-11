@@ -1,0 +1,101 @@
+<template>
+  <div>
+    <h1>GET CUBE OF ANY NUMBER!!</h1>
+  <div id = "vue_det">
+
+     <input v-model="num" type="text" placeholder="Enter any number"><div >{{msg}}</div>
+     <div id="result">Result={{output}}</div>
+     <button v-on:click="validate">GO!</button><button type="reset" v-on:click="reset">Clear</button><br>
+
+  </div>
+  </div>
+</template>
+
+<script>
+export default {
+  
+  data () {
+    return {
+      num:0,
+      output:'',
+      msg:'',
+      
+    }
+  },
+
+watch :{num : function(val)
+{this.num=val;
+
+}
+},
+methods: {
+validate : function(val){
+return this.output=this.num*this.num*this.num;},
+
+validateInput : function(){
+if(/^\d{20}$/.test(val)){
+  return this.msg='';
+}
+else{return this.msg='please enter any number'}
+},
+
+reset : function(){
+this.num=" ";
+this.output=" ";
+}
+}
+}
+</script>
+
+<style>
+body{
+   background-color:limegreen;
+   display:flex;
+   flex-direction: column;
+   justify-content: center;
+   text-align: center;
+   box-sizing: border-box;
+   font-family: cursive;
+   letter-spacing:2px;
+   color:midnightblue;
+}
+input{
+   width:200px;
+   height:50px;
+   border-radius: 20px 20px 20px 20px;
+   border:2px solid green;
+   color:indigo;
+   font-size: large;
+   text-align: center;
+   background-color: lightcoral;
+   font-family: cursive;font-weight: 600;
+}
+button{
+   width:80px;
+   height:30px;
+   border-radius: 20px 20px 20px 20px;
+   border:2px solid green;
+   color:rgb(11, 6, 15);
+   font-size: large;
+   text-align: center;
+   background-color: rgb(128, 199, 240);
+   font-family: cursive;
+   margin:10px;
+}
+#result{
+   width:250px;
+   height:50px;
+   color:black;
+   font-family: cursive;
+   font-weight: 800;
+   background-color: lightseagreen;
+   text-align: center;
+   left:0;
+   position: relative;
+   margin:15px;
+   padding:10px;
+   border:2px solid mediumblue;
+   font-size: 23px;
+}
+
+</style>
